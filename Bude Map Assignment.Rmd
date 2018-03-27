@@ -32,7 +32,7 @@ bb <- attr(map, "bb")
 bbox <- bb2bbox(bb)
 ```
 
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 # Finding Bude on the map
 
 map <- get_map(gc, zoom=16)
@@ -44,7 +44,7 @@ ggmap(map) +
 ```
 
 # Drawing Bude road map 
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 map_road <- get_map(location=gc, maptype = "roadmap",zoom= 17)
 ggmap(map_road)+
   geom_point(
@@ -54,7 +54,7 @@ ggmap(map_road)+
 ```
 
 # Drawing watercolor map
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 map_water <- get_map(location=gc, maptype = "watercolor",zoom= 17)
 ggmap(map_water)+
   geom_point(
@@ -107,7 +107,7 @@ Located at the clifftops overlooking the Atlantic ocean, the Bude Cornwall Crick
 
 
 
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 loc <- c("Summerleaze Beach","Crooklets Beach","Bude Cornwall Cricket Club")
 g <- geocode(loc)
 map <- get_map(g)
@@ -127,7 +127,7 @@ map1 <- map1+ annotate("text", x = -4.554, y = 50.833, label = "Bude Cornwall Cr
 map1
 ```
 
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 map_water <- get_map(location=g, maptype = "watercolor",zoom= 16)
 
 map3 <- ggmap(map_water)+
@@ -152,7 +152,10 @@ The Barrel at Bude is the second micropub to open in Cornwall. Located at the he
 
 ![Inside the pub](pub1.jpeg )
 
-```{r,echo=FALSE}
+\newpage
+
+# Pub on map
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 pub <- geocode("The Barrel at Bude")
 map <- get_map(pub)
 bb <- attr(map, "bb")
@@ -169,7 +172,7 @@ ggmap(map) +
 
 Mark routes from the pub to the cricket ground.
 
-```{r,echo=FALSE}
+```{r message=FALSE, warning=FALSE, echo = FALSE}
 from <- "The Barrel at Bude"
 to <- "Bude Cornwall Cricket Club"
 route_df <- route(from, to, structure = "route")
